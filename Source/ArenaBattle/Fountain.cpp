@@ -69,7 +69,6 @@ void AFountain::PostInitializeComponents()
 void AFountain::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//AddActorLocalRotation(FRotator(0.0f, RotateSpeed*GetWorld()->GetDeltaSeconds(), 0.0f));
-	
+	AddActorLocalRotation(FRotator(0.0f, RotateSpeed*GetWorld()->GetDeltaSeconds(), 0.0f));
 }
 
