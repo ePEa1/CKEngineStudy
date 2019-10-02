@@ -18,6 +18,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void SetControlMode(int32 ControlMode);
 
 public:	
 	// Called every frame
@@ -33,4 +34,8 @@ public:
 private:
 	void UpDown(float NewAxisValue);
 	void LeftRight(float NewAxisValue);
+	void LookUp(float NewAxisValue);
+	void Turn(float NewAxisValue);
+
+	UPROPERTY(VisibleAnywhere) FVector DirectionToMove = FVector::ZeroVector;
 };
