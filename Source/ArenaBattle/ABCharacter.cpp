@@ -2,6 +2,7 @@
 
 #include "ABCharacter.h"
 #include "ABAnimInstance.h"
+#include "ABAIController.h"
 
 // Sets default values
 AABCharacter::AABCharacter()
@@ -43,6 +44,8 @@ AABCharacter::AABCharacter()
 	AttackEndComboState();
 
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("ABCharacter"));
+
+	//AIControllerClass= 
 }
 
 // Called when the game starts or when spawned
