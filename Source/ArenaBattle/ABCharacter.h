@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "ABCharacter.generated.h"
 
+DECLARE_MULTICAST_DELEGATE(FOnAttackEndDelegate);
+
 UCLASS()
 class ARENABATTLE_API AABCharacter : public ACharacter
 {
@@ -32,6 +34,9 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = Camera) USpringArmComponent* SpringArm;
 
 	UPROPERTY(VisibleAnywhere, Category = Camera) UCameraComponent* Camera;
+	
+	void Attack();
+	FOnAttackEndDelegate OnAttackEnd;
 
 private:
 	void UpDown(float NewAxisValue);
@@ -39,9 +44,10 @@ private:
 	void LookUp(float NewAxisValue);
 	void Turn(float NewAxisValue);
 	
-	void Attack();
+	
 	UPROPERTY(VisibleAnywhere) FVector DirectionToMove = FVector::ZeroVector;
 	
+		
 	UFUNCTION() void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
 	
 	void AttackStartComboState();
@@ -59,5 +65,6 @@ private:
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attack, Meta = (AllowPrivateAccess = true)) int32 MaxCombo;
 	
 	UPROPERTY() class UABAnimInstance* ABAnim;
+
 	
 };
